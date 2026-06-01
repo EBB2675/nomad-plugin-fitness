@@ -93,14 +93,9 @@ class FitnessMetric(ArchiveSection):
 
     value = Quantity(
         type=float,
+        flexible_unit=True,
         description='Numeric value of the metric.',
         a_eln=ELNAnnotation(component=ELNComponentEnum.NumberEditQuantity),
-    )
-
-    unit = Quantity(
-        type=str,
-        description='Original unit string from the data source.',
-        a_eln=ELNAnnotation(component=ELNComponentEnum.StringEditQuantity),
     )
 
     device = SubSection(
