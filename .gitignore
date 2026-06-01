@@ -130,8 +130,7 @@ dmypy.json
 .pyre/
 
 # Personal health and wearable exports
-data/raw/
-data/private/
+data/*
 *.xml
 *.zip
 *.gpx
