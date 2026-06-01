@@ -1,6 +1,15 @@
 # nomad-plugin-fitness
 
-here I work on a plugin to manage my data from smart wearables
+A small NOMAD plugin for structuring smart wearable data such as Apple Watch exports.
+
+This is a hobby data-science project for exploring personal fitness data. It is not a medical tool and should not be used for diagnosis or health decisions.
+
+## First schema goal
+
+- Store one daily fitness summary per archive entry
+- Store workouts as repeated subsections
+- Store optional generic metrics for source-specific wearable records
+- Keep the schema source-agnostic so Apple Watch, Garmin, Fitbit, Oura, and other sources can be mapped later
 
 This `nomad` plugin was generated with `Cookiecutter` along with `@nomad`'s [`cookiecutter-nomad-plugin`](https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin) template.
 

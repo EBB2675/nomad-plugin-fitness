@@ -129,7 +129,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Personal health and wearable exports
 data/raw/
+data/private/
 *.xml
 *.zip
+*.gpx
+*.fit
+*.tcx
 *.csv

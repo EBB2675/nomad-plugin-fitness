@@ -1,25 +1,21 @@
-from typing import (
-    TYPE_CHECKING,
-)
-
-if TYPE_CHECKING:
-    from nomad.datamodel.datamodel import (
-        EntryArchive,
-    )
-    from structlog.stdlib import (
-        BoundLogger,
-    )
+from typing import TYPE_CHECKING
 
 from nomad.config import config
-from nomad.datamodel.metainfo.workflow import Workflow
 from nomad.parsing.parser import MatchingParser
+
+from nomad_plugin_fitness.schema_packages.schema_package import DailyFitnessSummary
+
+if TYPE_CHECKING:
+    from nomad.datamodel.datamodel import EntryArchive
+    from structlog.stdlib import BoundLogger
+
 
 configuration = config.get_plugin_entry_point(
     'nomad_plugin_fitness.parsers:parser_entry_point'
 )
 
 
-class NewParser(MatchingParser):
+class FitnessParser(MatchingParser):
     def parse(
         self,
         mainfile: str,
@@ -27,6 +23,6 @@ class NewParser(MatchingParser):
         logger: 'BoundLogger',
         child_archives: dict[str, 'EntryArchive'] = None,
     ) -> None:
-        logger.info('NewParser.parse', parameter=configuration.parameter)
+        logger.info('FitnessParser.parse', parameter=configuration.parameter)
 
-        archive.workflow2 = Workflow(name='test')
+        archive.data = DailyFitnessSummary(source_file=mainfile)
